@@ -1,16 +1,12 @@
 
 /* Initial Page Login */
 
-
 .homeLogin {
-
     background-color:white;
 }
-
 body {
     background-color: white;
 }
-
 .loginForm{
     margin-top: 3cm;
     background-color: white;
@@ -43,6 +39,29 @@ label {
     background-color: white;
 }
 
-.btnDec {
-    border: blue 1px;
+
+/* Homepage */
+
+.mainContainer{
+    background-color:white;
+}
+
+.profileContainer {
+    background-color:white;
+}
+.welcomeName{
+    padding-left: 9cm;
+}
+.employee-name{
+    font-family: 'Poppins', sans-serif; 
+}
+.icon{
+    margin-left: 6cm;
+    margin-bottom: 5px;
+}
+.tasksName{
+    font-family: 'Poppins', sans-serif; 
+}
+.taskCard{
+    margin-left: 1cm;
 }
