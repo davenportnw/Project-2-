@@ -24,13 +24,12 @@ const exphbs = require("express-handlebars");
 // node extension better comments .1 
 
 // short circuit PORT 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3301;
 // require the models for the starting 
 let db = require('./models');
 
 // use morgan 
 app.use(morgan('dev'));
-
 
 // // request token 
 // app.get('/token', authorize(), (req, res) => {
@@ -49,6 +48,7 @@ app.use(morgan('dev'));
 
 //     res.send(token); 
 // });
+
 
 // Define middleware here
 // for form data 

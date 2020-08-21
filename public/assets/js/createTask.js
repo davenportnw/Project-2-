@@ -19,47 +19,67 @@ $(document).ready(function () {
         $.post("/api/task", {
             task: userTask,
         })
-            .then(function (response) {
+            .then(async function (response) {
 
                 // ! tell the user that you have made a task
-                // todo: append the task to the html 
+                // todo: append the task to the html [DONE]
 
                 // * let the user know that the task was created 
-                $("#taskCreatedAlert").text('Task Created!!!');
+                await $("#taskCreatedAlert").text('Task Created!!!');
                 // * clear the value in the box 
-                $("#cityInputValue").val('');
+                await $("#cityInputValue").val('');
 
-                console.log(response);
+                // * this is the new TASK
+                // console.log({response});
 
+                // timing out alert 
+                await setTimeout(function(){ $("#taskCreatedAlert").text('');}, 3000);
                 //!maybe a settimout 
-                // todo: set timeout to clear the message when it's done
+                // todo: set timeout to clear the message when it's done [DONE!]
 
-
-                updateUserTaskList();
+                // send Id 
+                updateUserTaskList(response.id);
 
             })
             .catch(function (err) {
-                console.log(err, 'there was an error in the ');
+                console.log(err, 'there was an error in the create task');
             });
 
     });
 
 
     // update once a new task is created 
-    async function updateUserTaskList() {
+    async function updateUserTaskList(usertTaskId) {
+        // this is the task id
+        // console.log({usertTaskId}); 
 
-        // clear the task created folder 
-        // $("#taskCreatedAlert").text('Task Created!!!');
-
-        // make a ajax to call all of the task associated
+        // make a ajax to call the current user ID
         let data = await $.get("/api/login/user_data");
 
-        console.log(data);
-        console.log(data.user);
-        console.log(data.id);
+        if (usertTaskId) {
+            let role = await $.post('api/employeeTask', { EmployeeId: data.id, TaskId: usertTaskId })
+        }
 
-    }
 
+
+        // return the new associate task with employee 
+        // console.log({role}); 
+
+        let UserTasks = await $.get(`api/employee/single/${data.id}`)
+
+        // all tasks for the user 
+        // console.log(UserTasks.Tasks[0].task)
+        UserTasks.Tasks.forEach(e => {
+
+            let taskCard = $('<div>').text(e.task).addClass('col-sm-12 mb-2 col-md-6 border border-info text-center bg-primary font-weight-bold  rounded-lg p-2 pb-3');
+
+            $('.tasks').prepend(taskCard)
+
+        });
+    };
+
+
+    // ** AVATAR SET UP AT THE BEGINING OF THE PAGE 
     $.get("/api/login/user_data").then(function (data) {
         let user = data.email;
         $(".employee-name").text(user);
@@ -77,16 +97,19 @@ $(document).ready(function () {
 
         $(".icon").attr('src', customeIcon);
     });
+    
+
+    updateUserTaskList(); 
 });
 
 
 
 
 // ! DO THIS !!!!!!
-// todo: link the task to the user that created the task 
-// todo  when the button is clicked the task is made 
+// todo: link the task to the user that created the task [DONE]
+// todo  when the button is clicked the task is made [DONE]
 // todo  THEN ==> we make a ajax call to the database to get all of the 
-// todo; associated with this user 
+// todo; associated with this user [DONE] 
 
 
 
