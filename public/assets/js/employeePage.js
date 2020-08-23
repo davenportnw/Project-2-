@@ -5,6 +5,7 @@ $(document).ready(function () {
         let user = data.email;
         $(".employee-email").text(user);
 
+        
         // this prefilter was used to correct CORS that prevented the ajax from calling 
         $.ajaxPrefilter(function (options) {
             if (options.crossDomain && jQuery.support.cors) {
@@ -18,6 +19,40 @@ $(document).ready(function () {
 
         $(".icon").attr('src', customeIcon);
     });
+
+    $.ajax('api/employee/name', {
+        type:'GET'
+    }).then(function(response) {
+      
+        $('.employee-fullname').text(response.fullname);
+        window.location.reload();
+    })
+
+    //Grab new name and put on homepage
+    
+//Update Full Name
+    // $('#updateName').on('click', function(event) {
+    //     event.preventDefault();
+    //     console.log("update clicked");
+
+    //     let updateName = $('#updateName').val().trim();
+
+    //     $.ajax("/api/employee",{
+    //         type:'POST',
+    //         data: {full_name: updateName}
+    //     }).then((response)=> {
+    //         window.location.reload();
+    //     }).catch((err)=> {
+    //         console.log('err', err);
+    
+    //     })
+    // });
+    
+
+
+   
+
+
 });
 
 

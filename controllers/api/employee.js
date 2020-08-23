@@ -2,10 +2,39 @@
 const router = require('express').Router();
 const employee = require('./employee');
 const bcrypt = require('bcryptjs');
-
+const mysql = require('../../config/config');
 
 /// require the db to pull data from models 
 let db = require('../../models');
+
+
+//Grab Name of employee
+router.get('/name', function(req,res){
+    let query = 'UPDATE employee SET full_name = "?"  WHERE email = "?";'
+    let fullname = 'SELECT full_name FROM employee WHERE id = "?" ';
+    let key = req.params.id;
+    mysql.query(query, [key], function(err){
+        if(err) throw err;
+    }).then(function() {
+        res.json(fullname);
+    })
+    // let data = employee.findOne({where: {full_name: key}});
+});
+
+//update user data
+
+router.put('/:id', function(req,res){
+    let updateValues =
+    {
+        full_name: req.body.full_name
+    };
+
+    let updatedName =  db.Employee.update(req.params.id, updatedValues, function(err){
+        if(err) throw err;
+        console.log("updated your name");
+    })
+});
+
 
 // all employees and task
 router.get('/', async (req, res) => {

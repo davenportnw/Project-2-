@@ -36,7 +36,7 @@
                             <div><img src="" alt="weather Icon" class=" icon rounded border "></div>
                         </div>
                         <div class="col-12 welcomeName">
-                            <h4 class="font-weight-bold">Welcome <span class="employee-name"></span>! </h4>
+                            <h4 class="font-weight-bold">Welcome <span class="employee-fullname"></span>! </h4>
                         </div>
                         <div class="col-12 mt-2">
                             <ul class="list-group text-black">
@@ -44,7 +44,7 @@
                                 </div>
                                 <div class="list-group-item bg-transparent ">Name :
                                     <p id="employee-name"></p>
-                                    <input type="text" name="user" placeholder="Enter Name">
+                                    <input type="text" name="user" id="updateName" placeholder="Enter Full Name">
                                     <button type="submit" class="btn btn-primary mb-2" id="updateName">Update Name</button>
                                 </div>
                                 
@@ -71,7 +71,7 @@
             <div class="row ">
                 <!-- create a task and maybe throw in search a task later -->
                 <div class="col-12">
-                    <h4 class="font-weight-bold">Tasks: <span id="taskCreatedAlert"></span> </h4>
+                    <h4 class="font-weight-bold tasksName">Tasks: <span id="taskCreatedAlert"></span> </h4>
                     <div class="input-group input-group-lg ">
                         <input class="form-control  input-group-lg border border-primary" id="cityInputValue"
                             type="search" placeholder="What are we doing today..." aria-label="Search">

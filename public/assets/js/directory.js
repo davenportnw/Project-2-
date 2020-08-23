@@ -2,7 +2,7 @@
 
 
 // When the the search button is clicked, it is re-directed to the directory.
-$('#searchDirectory'),on('submit', function(event) {
+$('#searchDirectory').on('submit', function(event) {
     event.preventDefault();
 
     //Grab input from search bar

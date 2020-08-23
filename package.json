@@ -1,11 +1,13 @@
 {
   "name": "project-2-",
   "version": "1.0.0",
+  "private": true,
   "description": "USER STORY",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "start" :"node app.js"
   },
   "repository": {
     "type": "git",
