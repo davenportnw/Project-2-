@@ -1,9 +1,20 @@
-<div class="container">
-    <div class="row">
-        <div class="col-sm-12 text-center ">
-            <h1 class="font-weight-bolder">Tasker Manager </h1>
+<nav class="navbar navbar-expand-lg rounded">
+    <a class="navbar-brand" id="navTitle"  href="#">Tasker</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    </div>
+</nav>
+
+<div class="container homeLogin">
+    <div class="row homeLogin">
+        <div class="col-sm-12 text-center homeLogin ">
+            <h3 class="font-weight-bolder" id="titleName">Login</h3>
+            <p id="description">Or sign up!</p>
+            
         </div>
-        <div class=" offset-1 col-10 offset-md-3 col-md-6  mt-4 shadow rounded bg-primary p-5 text-white ">
+        <div class=" offset-1 col-10 offset-md-3 col-md-6  mt-4 shadow rounded  p-5 text-white loginForm ">
             <form class="login">
                 <div class="form-group">
                     {{!-- this is the eamil  --}}
@@ -18,9 +29,9 @@
                     <label for="exampleInputPassword1">Password</label>
                     <input type="password" placeholder="Enter your password....." class="form-control" id="password">
                 </div>
-                <div>
-                    <button type="submit" class="btn btn-outline-success" id="login"> login </button>
-                    <button type="submit" class="btn btn-outline-success" id="signup-button">signup</button>
+                <div class="text-center">
+                    <button type="submit" class="btn navbar-brand btn-primary " id="login"> Login </button>
+                    <button type="submit" class="btn navbar-brand btn-primary" id="signup-button">Sign up</button>
                     <p class="text-danger errMsg"></p>
                 </div>
             </form>

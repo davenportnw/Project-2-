@@ -5,7 +5,7 @@ const bcrypt = require('bcryptjs');
 
 
 /// require the db to pull data from models 
-let db = require('../../models')
+let db = require('../../models');
 
 // all employees and task
 router.get('/', async (req, res) => {

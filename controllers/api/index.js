@@ -6,6 +6,7 @@ const department = require('./department');
 const task = require('./task');
 const role = require('./role');
 const employeeTask = require('./employeeTask');
+const directory = require('./directory');
 
 //! api login 
 const login = require('./login');
@@ -17,6 +18,9 @@ router.use('/department', department);
 router.use('/task', task);
 router.use('/role', role);
 router.use('/employeeTask', employeeTask);
+
+// ! api login/registration routes
+router.use('/login', login);
 router.use('/signup', signup);
 
 

@@ -1,5 +1,5 @@
 {{!-- this is the new navbar  --}}
-<nav class="navbar navbar-dark bg-primary navbar-expand-lg rounded">
+<nav class="navbar navbar-expand-lg rounded">
     <a class="navbar-brand " href="#">Tasker</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
         aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,9 +14,11 @@
 
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search">
-                {{!-- Search Directory --}}
-                <button class="btn btn-outline-success my-2 my-sm-0  text-white " type="submit">Search</button>
-                <button class="btn btn-outline-success my-3 ml-2 my-sm-0 text-white logOut text">Log Out</button>
+
+                <button class="btn btn-outline-success my-2 my-sm-0  text-black " type="submit" href= "/directory" id="searchDirectory">Search</button>
+                <button class="btn btn-outline-success my-3 ml-2 my-sm-0 text-black logOut text">Log Out</button>
+
+
             </form>
 
 
@@ -24,32 +26,46 @@
 </nav>
 
 
-<div class="container-fluid">
+<div class="container-fluid mainContainer">
     <div class="row">
 
         <!-- PIC && STATS  -->
         <div class="col-12 col-lg-9 mt-3">
             <div class="row">
                 {{!-- stats && avatar--}}
-                <div class="col-12 bg-primary p-3 rounded font-weight-bold ">
-                    <div class="row">
-                        <div class="col-5 col-md-6">
+                <div class="col-12  rounded font-weight-bold profileContainer ">
+                    <div class="row profileContainer">
+                        <div class="col-4 icon" >
                             <div><img src="" alt="weather Icon" class=" icon rounded border "></div>
                         </div>
-                        <div class="col-4">
-                            <h4 class="font-weight-bold text-white">Welcome <span class="employee-name"></span>!! </h4>
+
+                        <div class="col-12 welcomeName">
+                            <h4 class="font-weight-bold">Welcome <span class="employee-name"></span>! </h4>
+
                         </div>
                         <div class="col-12 mt-2">
-                            <ul class="list-group text-white">
-                                <div class="list-group-item bg-transparent ">Email : <span class="employee-name"></span>
+                            <ul class="list-group text-black">
+                                <div class="list-group-item bg-transparent ">Email : <span class="employee-email"></span>
                                 </div>
-                                <div class="list-group-item bg-transparent ">id : <span class="employee-id"></span>
+
+                                <div class="list-group-item bg-transparent ">Name :
+                                    <p id="employee-name"></p>
+                                    <input type="text" name="user" placeholder="Enter Name">
+                                    <button type="submit" class="btn btn-primary mb-2" id="updateName">Update Name</button>
+
+
                                 </div>
-                                <div class="list-group-item bg-transparent ">name : <span class="humidity0"></span>
+                                
+                                <div class="list-group-item bg-transparent ">Role : 
+                                    <p id="employee-role"></p>
+                                    <input type="text" name="role" placeholder="Enter Role">
+                                    <button type="submit" class="btn btn-primary mb-2" id="updateRole">Update Role</button>
                                 </div>
-                                <div class="list-group-item bg-transparent ">Role : <span class="temp0"></span>
-                                </div>
-                                <div class="list-group-item bg-transparent ">Department : <span class="temp0"></span>
+
+                                <div class="list-group-item bg-transparent ">Department : 
+                                    <p id="employee-department"></p>
+                                    <input type="text" name="department" placeholder="Enter Department">
+                                    <button type="submit" class="btn btn-primary mb-2" id="updateDepart">Update Role</button>
                                 </div>
                             </ul>
                         </div>
@@ -84,14 +100,15 @@
             </div>
         </div>
 
-        <div class="col-12 offset-lg-1 col-lg-10 mt-3">
+        <div class="col-12 col-lg-6 mt-3 text-center taskCard">
             <!-- create a task  -->
             <div class="row">
                 <div class="col-12">
-                    <h1 class="ml-n3 display-5 ">Tasks to be done!</h1>
-                    <div class="row d-flex justify-content-between text-center tasks">
+                    <h3 class="text-center tasksName">Tasks to be done!</h3>
+                    <div class="row d-flex justify-content-between text-center">
+
                         <div
-                            class="col-sm-12 mb-2 col-md-6 border border-info bg-primary font-weight-bold  rounded-lg p-2 pb-3">
+                            class="col-sm-12 mb-2 col-md-6 border border-info  font-weight-bold  rounded-lg p-2 pb-3">
                             one task
                         </div>
                     </div>
@@ -100,5 +117,8 @@
         </div>
 
     </div>
+    {{!-- <script src="/Users/nicoledavenport/utcode/Project-2-/public/assets/js/profile.js"></script> --}}
+    <script src="/assets/js/profile.js"></script>
+    <script src="/assets/js/directory.js"></script>
     <script src="/assets/js/employeePage.js"></script>
     <script src="/assets/js/createTask.js"></script>
