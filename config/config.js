@@ -3,25 +3,15 @@ require('dotenv').config();
 module.exports = {
     development: {
         username: "root",
-        password: process.env.DB_PASS, /// process.env.password
+        password: process.env.DBPASSWORD, /// process.env.password
         database: "Employee_management",
         host: "127.0.0.1",
         dialect: "mysql"
     },
-    test: {
-        username: "root",
-        password: null,
-        database: "database_test",
-        host: "127.0.0.1",
-        dialect: "mysql"
-    },
     production: {
-        username: "root",
-        password: null,
-        database: "database_production",
-        host: "127.0.0.1",
-        dialect: "mysql"
-    }
+		use_env_variable: 'JAWSDB_URL',
+		dialect: 'mysql',
+	},
 };
 
 // sedding
